@@ -40,6 +40,17 @@ in your configuration.
 
 ### 2.step2 
 #### Adding a shared library
+```xml
+<application
+    android:name=".MainApplication">
+    ...
+    <uses-library android:name="com.pos.device" android:required="false"/>
+    <activity>
+        ...
+    </activity>
+    ...
+</application>
+```
 [View Details](./app/src/main/AndroidManifest.xml)
 
 You need to add the shared library configuration under the
@@ -47,7 +58,17 @@ application node of the manifest so that the Android system
 can help the app load the corresponding shared library.
 
 
-### 3.step3 
+### 3.step3 Initialize SDK
+```java
+import com.pos.device.SDKManager;
+import com.pos.device.SDKManagerCallback;
+SDKManager.init(context, new SDKManagerCallback() {
+    @Override
+    public void onFinish() {
+        Log.w("SDK", "init sdk success");
+    }
+});
+```
 #### Call our SDKManager to initialize and then you can develop related business
 [View Details](./app/src/main/java/com/newpos/integrated/sdk/demo/MainApplication.java)
 
