@@ -20,6 +20,9 @@ for Android(Kotlin) ([project](https://github.com/newposstoresupport/integrated-
 
 ### 1.step1
 #### You need to add the SDK dependency to your project.
+```
+compileOnly(files("external/sdk_example.jar"))
+```
 [View Details](./app/build.gradle)
 
 * 1.If you put the sdk.jar in the regular libs folder, even if you use
